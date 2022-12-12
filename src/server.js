@@ -78,7 +78,7 @@ var onJoined = function(socket) {
 		
 		// check if a user with that name already exists
 		if (users[data.name]) {
-			socket.emit("msg", { msg: "That name is already in use. Please choose another." });
+			socket.emit("msg", { msg: "Usuario en uso, escoge algun otro." });
 			return;
 		}
 		
@@ -92,7 +92,7 @@ var onJoined = function(socket) {
 		userQueue.push(socket);
 		
 		// notifies the user that they"re waiting for another connection
-		socket.emit("msg", { msg: "Searching for another user to play with..." });
+		socket.emit("msg", { msg: "Esperando usuario..." });
 		
 		// tell the client the registration went through
 		socket.emit("joinSuccess");
