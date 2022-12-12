@@ -81,7 +81,7 @@ class GameManager {
 		this.p1.emit(
 			"msg",
 			{
-				msg: "Match started, you're playing against " + this.p2.name + "."
+				msg: "Estas jugando contra " + this.p2.name + "."
 			}
 		);
 		this.p1.side = 0;
@@ -102,7 +102,7 @@ class GameManager {
 		this.p2.emit(
 			"msg",
 			{
-				msg: "Match started, you're playing against " + this.p1.name + "."
+				msg: "Estas jugando contra " + this.p1.name + "."
 			}
 		);
 		this.p2.emit("updateInfo", { object: "user", side: 1 });
@@ -110,7 +110,7 @@ class GameManager {
 	
 	
 		//== The game starting sequence
-		this.notifyUsersMultiple(["First to 10 points wins","Game starting in 3...", "2...", "1...", "Go!"], 1000);
+		this.notifyUsersMultiple(["Partida a 10 puntos","Empieza en 3...", "2...", "1...", "Go!"], 1000);
 		this.activateGame(5000);
 	}
 	
@@ -358,13 +358,13 @@ class GameManager {
 			
 			// if either player's score is >= 10, they've won
 			if (this.p1.score >= 10 || this.p2.score >= 10) {
-				this.notifyUsers("Game Complete", -1);
+				this.notifyUsers("Juego terminado", -1);
 				this.gameComplete = true;
 			}
 			// nobody has won, continue
 			else {
 				// send a resume sequence to the players
-				this.notifyUsersMultiple(["Resume in 3...", "2...", "1...", "Go!"], 500);
+				this.notifyUsersMultiple(["Listos 3...", "2...", "1...", "Go!"], 500);
 				this.activateGame(2000);
 			}
 		}
